@@ -21,7 +21,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-16 max-w-7xl mx-auto items-center px-4 justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <span className="font-bold text-2xl tracking-tight ">Travel buddy</span>
+          <span className="font-bold text-2xl tracking-tight ">WanderSphere</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -53,7 +53,7 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] flex flex-col p-6">
               <SheetHeader className="px-0 pt-0">
-                <SheetTitle className="text-left font-bold text-2xl tracking-tight">Travel buddy</SheetTitle>
+                <SheetTitle className="text-left font-bold text-2xl tracking-tight">WanderSphere</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col gap-6 mt-6 flex-1">
                 <nav className="flex flex-col gap-4 text-lg font-medium">

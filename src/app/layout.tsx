@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Wanderlust | Travel CMS",
+  title: "WanderSphere | Travel CMS",
   description: "A modern Next.js travel directory built with Hygraph CMS",
 };
 

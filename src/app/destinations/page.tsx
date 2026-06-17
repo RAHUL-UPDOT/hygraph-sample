@@ -5,7 +5,7 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { EmptyState } from '@/components/layout/EmptyState';
 
 export const metadata = {
-  title: 'All Destinations | Wanderlust Travel',
+  title: 'All Destinations | WanderSphere',
   description: 'Explore our complete directory of amazing travel destinations around the world.',
 };
 

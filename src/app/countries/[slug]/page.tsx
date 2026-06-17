@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const country = await getCountryBySlug(slug);
   if (!country) return { title: 'Not Found' };
   return {
-    title: country.seo?.metaTitle || `${country.name} | Wanderlust Travel`,
+    title: country.seo?.metaTitle || `${country.name} | WanderSphere`,
     description: country.seo?.metaDescription || `Explore the best destinations and activities in ${country.name}`,
     openGraph: {
       images: country.seo?.ogImage?.url ? [country.seo.ogImage.url] : [],

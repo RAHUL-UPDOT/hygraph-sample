@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const destination = await getDestinationBySlug(slug);
   if (!destination) return { title: 'Not Found' };
   return {
-    title: destination.seo?.metaTitle || `${destination.title} | Wanderlust Travel`,
+    title: destination.seo?.metaTitle || `${destination.title} | WanderSphere`,
     description: destination.seo?.metaDescription || destination.shortDesc || `Explore ${destination.title}`,
     openGraph: {
       images: destination.seo?.ogImage?.url ? [destination.seo.ogImage.url] : [],

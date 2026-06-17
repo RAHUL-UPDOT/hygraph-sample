@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="border-t py-12 bg-zinc-50 dark:bg-zinc-950">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-8">
         <div className="space-y-4">
-          <h3 className="text-xl font-bold tracking-tight">Wanderlust</h3>
+          <h3 className="text-xl font-bold tracking-tight">WanderSphere</h3>
           <p className="text-sm text-zinc-500 max-w-xs leading-relaxed">
             Discover the most beautiful destinations, unique activities, and incredible countries. Build your perfect travel itinerary today.
           </p>
@@ -26,7 +26,7 @@ export function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800 text-sm text-zinc-500 flex flex-col md:flex-row items-center justify-between">
-        <p>© {new Date().getFullYear()} Wanderlust Travel. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} WanderSphere Travel. All rights reserved.</p>
         <p className="mt-2 md:mt-0">Powered by Hygraph CMS & Next.js</p>
       </div>
     </footer>

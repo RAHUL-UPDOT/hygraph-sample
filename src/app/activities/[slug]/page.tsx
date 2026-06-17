@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const activity = await getActivityBySlug(slug);
   if (!activity) return { title: 'Not Found' };
   return {
-    title: activity.seo?.metaTitle || `${activity.name} | Wanderlust Travel`,
+    title: activity.seo?.metaTitle || `${activity.name} | WanderSphere`,
     description: activity.seo?.metaDescription || `Discover the best destinations for ${activity.name}`,
     openGraph: {
       images: activity.seo?.ogImage?.url ? [activity.seo.ogImage.url] : [],

@@ -5,7 +5,7 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { EmptyState } from '@/components/layout/EmptyState';
 
 export const metadata = {
-  title: 'All Countries | Wanderlust Travel',
+  title: 'All Countries | WanderSphere',
   description: 'Explore our complete list of beautiful countries to visit around the world.',
 };
 
