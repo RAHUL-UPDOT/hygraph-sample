@@ -175,7 +175,26 @@ const ALL_DESTINATIONS_QUERY = `
   }
 `;
 
-export async function getAllDestinations(): Promise<Destination[]> {
+const SEARCH_DESTINATIONS_QUERY = `
+  query SearchDestinations($search: String!) {
+    destinations(where: { title_contains: $search }) {
+      title
+      slug
+      shortDesc
+      featuredImage { url }
+      country {
+        name
+        slug
+      }
+    }
+  }
+`;
+
+export async function getAllDestinations(search?: string): Promise<Destination[]> {
+  if (search && search.trim() !== '') {
+    const data = await fetchAPI<{ destinations: Destination[] }>(SEARCH_DESTINATIONS_QUERY, { search });
+    return data?.destinations || [];
+  }
   const data = await fetchAPI<{ destinations: Destination[] }>(ALL_DESTINATIONS_QUERY);
   return data?.destinations || [];
 }
@@ -226,7 +245,21 @@ const ALL_COUNTRIES_QUERY = `
   }
 `;
 
-export async function getAllCountries(): Promise<Country[]> {
+const SEARCH_COUNTRIES_QUERY = `
+  query SearchCountries($search: String!) {
+    countries(where: { name_contains: $search }) {
+      name
+      slug
+      heroImage { url }
+    }
+  }
+`;
+
+export async function getAllCountries(search?: string): Promise<Country[]> {
+  if (search && search.trim() !== '') {
+    const data = await fetchAPI<{ countries: Country[] }>(SEARCH_COUNTRIES_QUERY, { search });
+    return data?.countries || [];
+  }
   const data = await fetchAPI<{ countries: Country[] }>(ALL_COUNTRIES_QUERY);
   return data?.countries || [];
 }
