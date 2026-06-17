@@ -6,7 +6,7 @@ import { Activity } from '@/services/travel';
 export function ActivityCard({ activity }: { activity: Activity }) {
   return (
     <Link href={`/activities/${activity.slug}`} className="block h-full group">
-      <Card className="flex flex-col items-center justify-center p-6 gap-4 hover:border-zinc-900 dark:hover:border-zinc-100 transition-colors cursor-pointer text-center h-full">
+      <Card className="flex flex-col items-center justify-center p-6 gap-4 hover:border-zinc-900 dark:hover:border-zinc-100 hover:shadow-lg hover:-translate-y-1 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-all duration-300 cursor-pointer text-center h-full">
         {activity.icon?.url ? (
           <div className="w-12 h-12 relative opacity-80 group-hover:opacity-100 transition-opacity">
             <Image 

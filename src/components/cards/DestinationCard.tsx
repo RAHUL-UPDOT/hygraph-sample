@@ -4,6 +4,8 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { buttonVariants } from '@/components/ui/button';
 import { Destination } from '@/services/travel';
 
+import { Badge } from '@/components/ui/badge';
+
 export function DestinationCard({ destination }: { destination: Destination }) {
   return (
     <Card className="overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300 p-0 ">
@@ -19,8 +21,15 @@ export function DestinationCard({ destination }: { destination: Destination }) {
       ) : (
         <div className="h-56 w-full bg-zinc-200 dark:bg-zinc-800" />
       )}
-      <CardHeader>
-        <CardTitle className="text-xl line-clamp-1">{destination.title}</CardTitle>
+      <CardHeader className="pb-3">
+        <div className="flex flex-col items-start gap-2">
+          <CardTitle className="text-xl line-clamp-1">{destination.title}</CardTitle>
+          {destination.country && (
+            <Badge variant="secondary" className="font-normal text-xs">
+              {destination.country.name}
+            </Badge>
+          )}
+        </div>
       </CardHeader>
       <CardContent className="flex-grow">
         {destination.shortDesc && (

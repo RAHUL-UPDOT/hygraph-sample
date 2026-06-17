@@ -5,7 +5,7 @@ import { Country } from '@/services/travel';
 
 export function CountryCard({ country }: { country: Country }) {
   return (
-    <Card className="overflow-hidden group hover:ring-2 hover:ring-zinc-900 dark:hover:ring-zinc-100 transition-all cursor-pointer p-0">
+    <Card className="overflow-hidden group  dark:hover:ring-zinc-100 transition-all cursor-pointer p-0">
       <Link href={`/countries/${country.slug}`} className="block h-full relative">
         {country.heroImage?.url ? (
           <div className="h-64 w-full relative">
