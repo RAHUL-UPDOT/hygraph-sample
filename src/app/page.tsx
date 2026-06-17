@@ -1,28 +1,17 @@
-import FilterableBlogList from '@/components/FilterableBlogList';
-import { getHomeData } from '@/services/hygraph';
+import { getHomePageData } from '@/services/travel';
+import { SectionRenderer } from '@/components/sections/SectionRenderer';
+import { notFound } from 'next/navigation';
 
-export default async function Home({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
-  const resolvedSearchParams = await searchParams;
-  const categorySlug = typeof resolvedSearchParams.category === 'string' ? resolvedSearchParams.category : undefined;
+export default async function Home() {
+  const data = await getHomePageData();
 
-  const data = await getHomeData(categorySlug);
+  if (!data || !data.page) {
+    return notFound();
+  }
 
   return (
-    <div className="flex flex-col gap-12">
-      <section className="space-y-4 pt-8">
-        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-          Latest Posts
-        </h1>
-        <p className="text-lg text-slate-400 max-w-2xl">
-          Discover our latest articles, insights, and updates from the blog.
-        </p>
-      </section>
-
-      <FilterableBlogList 
-        posts={data?.posts || []} 
-        categories={data?.categories || []} 
-        activeCategorySlug={categorySlug}
-      />
+    <div className="w-full flex flex-col gap-16 min-h-screen">
+      <SectionRenderer sections={data.page.sections} />
     </div>
   );
 }

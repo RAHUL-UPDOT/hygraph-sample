@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "sample Blog app",
-  description: "A modern Next.js blog built with Hygraph CMS",
+  title: "Wanderlust | Travel CMS",
+  description: "A modern Next.js travel directory built with Hygraph CMS",
 };
 
 export default function RootLayout({
@@ -28,11 +29,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <Navbar />
-        <main className="flex-1 max-w-6xl mx-auto w-full px-4 py-8">
+        <main className="flex-1 w-full flex flex-col items-center">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );
