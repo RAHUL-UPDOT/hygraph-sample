@@ -1,0 +1,36 @@
+name: Lighthouse CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  lhci:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+          
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          
+      - name: Install dependencies
+        run: pnpm install
+        
+      - name: Build Next.js
+        run: pnpm run build
+        env:
+          NEXT_PUBLIC_HYGRAPH_ENDPOINT: ${{ secrets.NEXT_PUBLIC_HYGRAPH_ENDPOINT }}
+          
+      - name: Run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun
